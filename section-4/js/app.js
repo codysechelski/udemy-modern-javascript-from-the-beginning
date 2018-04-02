@@ -8,15 +8,17 @@ const taskInput = document.querySelector('#task');
 //WIRE UPEVENT LISTENERS
 loadEventListenrs();
 
-function loadEventListenrs(){
-    form.addEventListener('submit',addTask);
+function loadEventListenrs() {
+    form.addEventListener('submit', addTask);
+    taskList.addEventListener('click', removeTask);
 }
 
-function addTask(e){
-    if(taskInput.value === ''){
+//Create Task
+function addTask(e) {
+    if (taskInput.value === '') {
         alert('Add a task name');
     }
-    
+
     //create li
     const li = document.createElement('li');
     li.className = 'collection-item';
@@ -33,8 +35,16 @@ function addTask(e){
     //add li to collection
     taskList.appendChild(li);
 
+    //clear out the input field and keep it in focus
     taskInput.value = '';
     taskInput.focus();
 
     e.preventDefault();
+}
+
+//Remove Task
+function removeTask(e) {
+    if(e.target.parentElement.classList.contains('delete-item')){
+        e.target.parentElement.parentElement.remove();
+    }
 }
