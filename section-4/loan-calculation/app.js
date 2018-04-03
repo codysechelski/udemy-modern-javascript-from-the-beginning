@@ -1,6 +1,13 @@
-document.querySelector('#loan-form').addEventListener('submit', calculateResults);
+document.querySelector('#loan-form').addEventListener('submit', function(e){
+  document.getElementById('results').style.display = 'none';
+  document.getElementById('loading').style.display = 'block';
 
-function calculateResults(e) {
+  setTimeout(calculateResults, 200);
+  
+  e.preventDefault();
+});
+
+function calculateResults() {
   const amount = document.querySelector('#amount');
   const interest = document.querySelector('#interest');
   const years = document.querySelector('#years');
@@ -21,12 +28,13 @@ function calculateResults(e) {
     monthlyPayment.textContent = monthly.toFixed(2);
     totalPayment.textContent = (monthly * calculatedPayments).toFixed(2);
     totalInterest.textContent = ((monthly * calculatedPayments) - principal).toFixed(2);
+
+    document.getElementById('results').style.display = 'block';
+    document.getElementById('loading').style.display = 'none';
   }
   else {
     showError('Please check your numbers');
   }
-
-  e.preventDefault();
 }
 
 function showError(errorMsg) {
