@@ -33,6 +33,7 @@ function calculateResults() {
     document.getElementById('loading').style.display = 'none';
   }
   else {
+    document.getElementById('loading').style.display = 'none';
     showError('Please check your numbers');
   }
 }
