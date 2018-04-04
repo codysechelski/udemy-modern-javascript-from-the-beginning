@@ -13,3 +13,10 @@ mary.lastName = 'Smith';
 mary.age = 30;
 
 console.log(mary);
+
+//Alternate syntax
+const brad = Object.create(personPrototypes,{
+  firstName: {value: 'Brad'},
+  lastName: {value: 'Traversy'},
+  age: {value: 36}
+});
