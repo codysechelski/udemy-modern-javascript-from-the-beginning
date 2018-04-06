@@ -11,3 +11,11 @@
 .error {
   background: red;
 }
+
+.actions {
+  text-align: center;
+}
+
+.delete:hover{
+  color:red;
+}
