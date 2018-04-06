@@ -1,40 +1,41 @@
-document.getElementById('button').addEventListener('click',loadData);
 
-function loadData(){
-  //create an XHR Object
-  const xhr = new XMLHttpRequest();
-
-  xhr.open('GET','data/data.txt',true);
-
-  xhr.onprogress = function(){
-    document.getElementById('button').style.background = 'red';
-  }
-
-  xhr.onload = function(){
-    const ui = new UI;
-    console.log(this);
-    if(this.status === 200){
-      console.log(this.responseText);
-      document.getElementById('output').textContent = this.responseText;
-      ui.showAlert('Data retrieved', 'success');
-    }
-    else{
-      ui.showAlert(`${this.statusText}.Error code ${this.status}`, 'error');
-    }
-    document.getElementById('button').style.background = 'transparent';
-  }
-
-  xhr.send();
-}
 
 function UI(){}
-UI.prototype.showAlert = function(msg,alertType){
-  let alert = document.createElement('div');
-  alert.className = `alert ${alertType}`;
-  alert.textContent = msg;
-  document.getElementById('alerts').appendChild(alert);
+UI.prototype.showAlert = function(title,msg,alertType){
+  const alert = document.createElement('div'),
+  alertTitle = document.createElement('h5');
+  let icon;
+  switch(alertType){
+    case 'success':
+      icon = 'fal fa-check';
+      break;
+    case 'info':
+      icon = 'fal fa-info-circle';
+      break;
+    case 'warning':
+      icon = 'fal fa-exclamation-triangle';
+      break;
+    case 'error':
+      icon = 'fal fa-exclamation-circle';
+      break;
+    default:
+      icon = 'fal fa-bell';
+  }
 
+  alert.className = `alert fade ${alertType}`;
+  alertTitle.innerHTML = `<i class="${icon}"></i> ${title}`;
+  alert.appendChild(alertTitle);
+  alert.appendChild(document.createTextNode(msg));
+  document.getElementById('alerts').appendChild(alert);
+  
   setTimeout(function(){
-    alert.remove();
+    alert.classList.remove('fade');
+  }, 1);
+  
+  setTimeout(function(){
+    alert.classList.add('fade');
+    setTimeout(function(){
+      alert.remove();
+    }, 1000);
   }, 3000);  
 }
