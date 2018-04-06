@@ -23,7 +23,6 @@ function loadData(){
           title = document.createElement('h2'),
           details = document.createElement('ul');
         
-        //construct the card
         card.className = 'card one-half column';
         title.textContent = book.Title;
         card.appendChild(title);
