@@ -1,11 +1,64 @@
+const http = new easyhttp();
+
+http.get('https://jsonplaceholder.typicode.com/posts/100', handleGetResponse);
+
+function handleGetResponse(error, response) {
+  if (error) {
+    console.log(error);
+  }
+  else {
+    console.log(response);
+  }  
+}
+
+const data = {
+  title: 'voluptas error itaque dicta',
+  body: 'cupiditate error itaque dicta'
+}
+
+// http.post('https://jsonplaceholder.typicode.com/posts', data, handlePostResponse);
+// function handlePostResponse(error, response) {
+//   if (error) {
+//     console.log(error);
+//   }
+//   else {
+//     console.log(response);
+//   }  
+// }
+
+// const data = {
+//   title: 'This is a new title for post 11',
+//    body: 'cupiditate error itaque dicta'
+// }
+
+// http.put('https://jsonplaceholder.typicode.com/posts/11', data, handlePostResponse);
+// function handlePostResponse(error, response) {
+//   if (error) {
+//     console.log(error);
+//   }
+//   else {
+//     console.log(response);
+//   }
+// }
+
+http.delete('https://jsonplaceholder.typicode.com/posts/100', handleGetResponse);
+
+function handleGetResponse(error, response) {
+  if (error) {
+    console.log(error);
+  }
+  else {
+    console.log(response);
+  }
+}
 
 
-function UI(){}
-UI.prototype.showAlert = function(title,msg,alertType){
+function UI() { }
+UI.prototype.showAlert = function (title, msg, alertType) {
   const alert = document.createElement('div'),
-  alertTitle = document.createElement('h5');
+    alertTitle = document.createElement('h5');
   let icon;
-  switch(alertType){
+  switch (alertType) {
     case 'success':
       icon = 'fal fa-check';
       break;
@@ -27,15 +80,15 @@ UI.prototype.showAlert = function(title,msg,alertType){
   alert.appendChild(alertTitle);
   alert.appendChild(document.createTextNode(msg));
   document.getElementById('alerts').appendChild(alert);
-  
-  setTimeout(function(){
+
+  setTimeout(function () {
     alert.classList.remove('fade');
   }, 1);
-  
-  setTimeout(function(){
+
+  setTimeout(function () {
     alert.classList.add('fade');
-    setTimeout(function(){
+    setTimeout(function () {
       alert.remove();
     }, 1000);
-  }, 3000);  
+  }, 3000);
 }
