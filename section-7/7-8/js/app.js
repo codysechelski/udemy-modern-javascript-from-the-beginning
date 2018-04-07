@@ -1,3 +1,56 @@
+const http = new easyhttp();
+
+// http.get('https://jsonplaceholder.typicode.com/posts/100', handleGetResponse);
+
+// function handleGetResponse(error, response) {
+//   if (error) {
+//     console.log(error);
+//   }
+//   else {
+//     console.log(response);
+//   }  
+// }
+
+// const data = {
+//   title: 'voluptas error itaque dicta',
+//   body: 'cupiditate error itaque dicta'
+// }
+
+// http.post('https://jsonplaceholder.typicode.com/posts', data, handlePostResponse);
+// function handlePostResponse(error, response) {
+//   if (error) {
+//     console.log(error);
+//   }
+//   else {
+//     console.log(response);
+//   }  
+// }
+
+// const data = {
+//   title: 'This is a new title for post 11',
+//    body: 'cupiditate error itaque dicta'
+// }
+
+// http.put('https://jsonplaceholder.typicode.com/posts/11', data, handlePostResponse);
+// function handlePostResponse(error, response) {
+//   if (error) {
+//     console.log(error);
+//   }
+//   else {
+//     console.log(response);
+//   }
+// }
+
+http.delete('https://jsonplaceholder.typicode.com/posts/100', handleGetResponse);
+
+function handleGetResponse(error, response) {
+  if (error) {
+    console.log(error);
+  }
+  else {
+    console.log(response);
+  }  
+}
 
 
 function UI(){}
