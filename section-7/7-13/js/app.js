@@ -1,4 +1,8 @@
+const http = new EasyHTTP();
 
+http.get('https://dog.ceo/api/breeds/list/all')
+  .then(data => console.log(data.message))
+  .catch(err => console.log(err));
 
 function UI(){}
 UI.prototype.showAlert = function(title,msg,alertType){

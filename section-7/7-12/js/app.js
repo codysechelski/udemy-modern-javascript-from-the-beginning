@@ -1,3 +1,19 @@
+// const sayHello = function () {
+//   console.log('Hello');
+// }
+
+// const sayHello =  () => {
+//   console.log('Hello');
+// }
+
+// const sayHello = () => console.log('Hello');
+// sayHello();
+
+// const sayHello = () => 'Hello';
+// console.log(sayHello());
+
+const sayHello = (name) => ({ msg: `Hello ${name}` });
+console.log(sayHello('Cody'));
 
 
 function UI(){}
