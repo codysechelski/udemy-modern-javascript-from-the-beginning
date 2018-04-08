@@ -10,10 +10,12 @@ searchUser.addEventListener('keyup', (e) => {
       .then(data => {
         if (data.profile.message === 'Not Found') {
           ui.showAlert('No user by that handle', 'danger');
+          ui.clearProfile();
         }
         else {
           try {
             ui.showProfile(data.profile);
+            ui.showRepos(data.repos);
           } catch (error) {
             
           }
