@@ -6,7 +6,9 @@ class Weather {
   }
 
   async getWeather() {
-    const response = await fetch(`http://api.wunderground.com/api/${this.apiKey}/geolookup/conditions/forecast/astronomy/almanac/forecast10day/alerts/q/${this.state}/${this.city}.json`);
+    const uri = `http://api.wunderground.com/api/${this.apiKey}/geolookup/conditions/forecast/astronomy/almanac/forecast10day/alerts/q/${this.state}/${this.city}.json`
+    console.log(uri);
+    const response = await fetch(uri);
 
     const responseData = await response.json();
 
@@ -14,7 +16,9 @@ class Weather {
   }  
 
   changeLocation(city, state) {
+    console.log(city,state);
     this.city = city;
     this.state = state;
+    console.log(this.city, this.state);
   }
 }
