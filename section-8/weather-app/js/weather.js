@@ -16,9 +16,7 @@ class Weather {
   }  
 
   changeLocation(city, state) {
-    console.log(city,state);
     this.city = city;
     this.state = state;
-    console.log(this.city, this.state);
   }
 }
