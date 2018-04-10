@@ -71,12 +71,100 @@ let str;
 //   reTest(re, str);
 // });
 
-// re = /[GF]ray/;
+// re = /[GF]ray/; 
 // ['Gray','Fray','gray','fray','Cray','GFray','FGray'].forEach(function(item){
 //   str = item;
 //   reTest(re, str);
 // });
-////////////////////////////////////////////////////////
+
+//The ^ reverses the logig
+// re = /[^GF]ray/; 
+// ['Gray','Fray','gray','fray','Cray','GFray','FGray'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+//Placing the  ^ before the bracket means that it must start with
+// re = /^[GF]ray/; 
+// ['Gray','Fray','gray','fray','Cray','GFray','FGray'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+// re = /[A-Z]ray/; 
+// ['Gray','Fray','gray','fray','Cray','GFray','FGray', 'FDFEDFEFDFDFray'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+// re = /[a-z]ray/; 
+// ['Gray','Fray','gray','fray','Cray','GFray','FGray', 'dddddray'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+//match any letter
+// re = /[A-Za-z]ray/; 
+// ['Gray','Fray','gray','fray','Cray','GFray','FGray', 'dddddray'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+// re = /[0-9]ray/; 
+// ['0ray','1ray','gray','42342ray'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+
+
+//Braces { Quantifiers }
+// re = /Hel{2}o/; 
+// ['Hello', 'Helo', 'Helllo'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+//requires 2-4 l chars
+// re = /Hel{2,4}o/; 
+// ['Hello', 'Helo', 'Helllo', 'Hellllo', 'Helllllo'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+//requires 2 or more l chars
+// re = /Hel{2,}o/; 
+// ['Hello', 'Helo', 'Helllo', 'Hellllo', 'Hellllllllllo'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+
+
+//Parentheses are used for grouping
+re = /([0-9]x){3}/; 
+// ['1x2x3x', '1x2x3x4x5x6x', '123xxx','242x34234234x2432x'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+// ^ and $ means it must end after
+// re = /^([0-9]x){3}$/; 
+// ['1x2x3x', '1x2x3x4x5x6x', '123xxx','242x34234234x2432x'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+
+
+
+//shorthand Character classes
+
+re = /\w/;    //Word character (letter number or _)
+['1x2x3x', '1x2x3x4x5x6x', '__', '123**xxx','~~'].forEach(function(item){
+  str = item;
+  reTest(re, str);
+});
 
 
 // const result = re.exec(str);
