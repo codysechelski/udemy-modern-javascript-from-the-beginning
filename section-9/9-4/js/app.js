@@ -76,11 +76,10 @@ let str;
 //   str = item;
 //   reTest(re, str);
 // });
-////////////////////////////////////////////////////////
 
 
-// const result = re.exec(str);
-// console.log(result);
+
+
 
 
 
