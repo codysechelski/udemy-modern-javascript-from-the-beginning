@@ -160,12 +160,77 @@ re = /([0-9]x){3}/;
 
 //shorthand Character classes
 
-re = /\w/;    //Word character (letter number or _)
-['1x2x3x', '1x2x3x4x5x6x', '__', '123**xxx','~~'].forEach(function(item){
+// re = /\w/;    //Word character (letter number or _)
+// ['1x2x3x', '1x2x3x4x5x6x', '__', '123**xxx','~~'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+// re = /\w+/;    //Word character (letter number or _) The + mans one or more. (I don't really understand this one)
+// ['1x2x3x', '1x2x3x4x5x6x', '__', '123**xxx','~~'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+
+// re = /\W/;    //Non-Word character (letter number or _) The + mans one or more. (I don't really understand this one)
+// ['1x2x3x', '    ', '__', '123**xxx','~~'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+// re = /\d/;    //Digit
+// ['1', '    ', '__', '55555','22332y23'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+// re = /\d+/;    //Digit + checkes the whole string
+// ['1', '    ', '__', '55555','22332y23'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+// re = /\D/;    //Non-Digit
+// ['1', '    ', '__', '55555','22332y23'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+// re = /\s/;    //White Space
+// ['1', '    ', '__', '55555','22332y23'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+// re = /\S/;    //Not White Space
+// ['1', '    ', '__', '55555','22332y23'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+
+// re = /Hell\b/i;    //Word Boundaries 
+// ['Hell', 'Hello', 'living-hell'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+
+
+//Assersions
+
+// re = /x(?=y)/;    //y must follow x
+// ['x', 'xs', 'xy', 'dfdfsdfxysdfsdf'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
+
+re = /x(?!y)/;    //y must NOT follow x
+['x', 'xs', 'xy', 'dfdfsdfxysdfsdf'].forEach(function(item){
   str = item;
   reTest(re, str);
 });
-
 
 // const result = re.exec(str);
 // console.log(result);
