@@ -12,24 +12,45 @@ let str;
 // re = /hello/i;
 // str = 'Hello world';
 
-//Metacharacter Symbols
-////////////////////////////////////////////////////////
-// re = /^h/i;     //Must start with
-// str = 'Hello World';
+//METACHARACTER SYMBOLS
 
-// re = /world$/i;     //Must end with
-// str = 'Hello World';
+//Must start with
+// re = /^h/i;     
+// ['Hello World', 'hell or high water', 'Does not start with an h'].forEach(function (item) {
+//   str = item;
+//   reTest(re, str);
+// })
 
-// re = /^hello$/i;     //Must start and end with
-// str = 'Hello';
+ //Must end with
+// re = /world$/i;    
+// ['Hello World'].forEach(function (item) {
+//   str = item;
+//   reTest(re, str);
+// })
 
-// re = /^h.llo$/i;     //Must any one character
-// //str = 'Hello';
-// str = 'H3llo';
 
-// re = /h*llo/i;     //Must any character 0 or more times
-// //str = 'Hello';
-// str = 'H323llo';
+//Must start and end with
+//re = /^hello$/i;
+// ['Hello', 'hello', 'hello, I said, HELLO'].forEach(function (item) {
+//   str = item;
+//   reTest(re, str);
+// })
+
+
+//Must any one character
+//  re = /^h.llo$/i;     
+// ['Hello', 'H3llo'].forEach(function (item) {
+//   str = item;
+//   reTest(re, str);
+// });
+
+
+//Must any character 0 or more times
+// re = /h*llo/i;
+// ['Hello', 'H323llo'].forEach(function (item) {
+//   str = item;
+//   reTest(re, str);
+// });
 
 // re = /gre?a?y/;       //Option character
 // ['gray', 'grey', 'gr3y', "greay", 'gry'].forEach(function(item){
@@ -50,11 +71,11 @@ let str;
 //   reTest(re, str);
 // });
 
-re = /[GF]ray/;
-['Gray','Fray','gray','fray','Cray','GFray','FGray'].forEach(function(item){
-  str = item;
-  reTest(re, str);
-});
+// re = /[GF]ray/;
+// ['Gray','Fray','gray','fray','Cray','GFray','FGray'].forEach(function(item){
+//   str = item;
+//   reTest(re, str);
+// });
 ////////////////////////////////////////////////////////
 
 
@@ -65,10 +86,10 @@ re = /[GF]ray/;
 
 function reTest(re, str){
   if(re.test(str)){
-    console.log(`${str} matches ${re.source}`);
+    console.log(`"${str}" matches ${re.source}`);
   }
   else{
-    console.log(`${str} does NOT match ${re.source}`);
+    console.log(`"${str}" does NOT match ${re.source}`);
   }
 }
 

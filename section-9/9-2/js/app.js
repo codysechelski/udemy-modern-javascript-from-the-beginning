@@ -16,7 +16,9 @@ re = /hello/i;
 
 
 //returns -1 if none found
-const str = 'Hello There';
-const result = str.search(re);
-console.log(result);
+// const str = 'Hello There';
+// const result = str.search(re);
+// console.log(result);
+
+
 
