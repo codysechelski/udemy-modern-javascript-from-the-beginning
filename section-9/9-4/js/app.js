@@ -232,8 +232,8 @@ re = /x(?!y)/;    //y must NOT follow x
   reTest(re, str);
 });
 
-// const result = re.exec(str);
-// console.log(result);
+
+
 
 
 
