@@ -11,9 +11,9 @@
 
 class EasyHTTP{
   //make HTTP GET
-  get(uri) {
+  get(uri, payload) {
     return new Promise((resolve, reject) => {
-      fetch(uri)
+      fetch(uri, payload)
         .then(res => res.json())
         .then(data => console.log(resolve(data)))
         .then(err => console.log(reject(err)));

@@ -1,6 +1,13 @@
 const http = new EasyHTTP();
 
 http.get('https://dog.ceo/api/breeds/list/all')
+//http.get('https://jira:8443/rest/greenhopper/1.0/rapid/charts/sprintreport?rapidViewId=12792&sprintId=14084',
+// {
+//   headers: {
+//     "Authorization" : "Basic c3h1YzNzOkRGJGNzMDA2",
+//     "Content-Type": "application/json"
+//   }
+// })
   .then(data => console.log(data.message))
   .catch(err => console.log(err));
 
