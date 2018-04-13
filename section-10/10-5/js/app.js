@@ -8,10 +8,29 @@ const key1 = 'some string',
       key3 = function(){};
 
 
-map1.set(key1, 'Value od key 1');
-map1.set(key2, 'Value od key 2');
-map1.set(key3, 'Value od key 3');
+map1.set(key1, 'Value oF key 1');
+map1.set(key2, 'Value oF key 2');
+map1.set(key3, 'Value of key 3');
 
-console.log(map1.get(key1));
-console.log(map1.get(key2));
-console.log(map1.get(key3));
+// console.log(map1.get(key1));
+// console.log(map1.get(key2));
+// console.log(map1.get(key3));
+
+
+//ITERATING MAPS
+
+// for (let [key, value] of map1) {
+//   console.log(`${key} = ${value}`);
+// }
+
+// for (let key of map1.keys()) {
+//   console.log(key);
+// }
+
+// for (let value of map1.values()) {
+//   console.log(value);
+// }
+
+//CONVERT TO ARRAYS
+const keyValueArray = Array.from(map1);
+console.log(keyValueArray);
