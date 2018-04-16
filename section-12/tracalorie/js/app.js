@@ -77,11 +77,27 @@ const ItemCtrl = (function(){
       });
       return found;
     },
+    deleteItem: function(itemId){
+      //get the ids
+      const ids = data.items.map(function(item){
+        return item.id;
+      });
+
+      //get the index of the id
+      const index = ids.indexOf(itemId);
+
+      //Remove it from data
+      data.items.splice(index,1);
+
+    },
     setCurrentItem: function (item) {
       data.currentItem = item;
     },
     getCurrentItem: function () {
       return data.currentItem;
+    },
+    clearAllItems: function(){
+      data.items = [];
     }
   }
 })();
@@ -161,7 +177,6 @@ const UICtrl = (function () {
       document.querySelector(UISelectors.deleteBtn).style.display = 'none';
       document.querySelector(UISelectors.backBtn).style.display = 'none';
       document.querySelector(UISelectors.addBtn).style.display = 'inline';
-      UICtrl.resetForm();
     },
     showEditState: function () {
       document.querySelector(UISelectors.updateBtn).style.display = 'inline';
@@ -193,7 +208,20 @@ const UICtrl = (function () {
           `;
         }
       });
-      UICtrl.clearEditState();
+    },
+    deleteListItem: function(id){
+      const itemId = `#item-${id}`;
+      document.querySelector(itemId).remove();
+    },
+    removeItems: function(){
+      let listItems = document.querySelectorAll(UISelectors.listItems);
+
+      //listItems is a node list and is not enumerable. We need to convert to array
+      listItems = Array.from(listItems);
+      
+      listItems.forEach(function(item){
+        item.remove();
+      });
     }
   }
 })();
@@ -217,6 +245,12 @@ const App = (function (ItemCtrl, UICtrl) {
     document.querySelector(UISelectors.itemList).addEventListener('click', itemUpdateClick);
     //update button
     document.querySelector(UISelectors.updateBtn).addEventListener('click', itemUpdateSubmit);
+    //back button
+    document.querySelector(UISelectors.backBtn).addEventListener('click', function(e){UICtrl.clearEditState(); e.preventDefault();});
+    //delete button
+    document.querySelector(UISelectors.deleteBtn).addEventListener('click', itemDeleteSubmit);
+    //clear button
+    document.querySelector(UISelectors.clearBtn).addEventListener('click', clearAllItemsClick);
   }
 
   //Events
@@ -282,6 +316,54 @@ const App = (function (ItemCtrl, UICtrl) {
 
     //display total calories
     UICtrl.displayTotalCalories(totalCalories);
+
+     //reset state
+     UICtrl.clearEditState();
+
+    e.preventDefault();
+  }
+
+  const itemDeleteSubmit = function(e){
+    //get current item
+    const currentItem = ItemCtrl.getCurrentItem();
+
+    //Delete the item from data
+    ItemCtrl.deleteItem(currentItem.id);
+
+    //delete from UI
+    UICtrl.deleteListItem(currentItem.id);
+
+    //Get total Calories
+    const totalCalories = ItemCtrl.getTotalCalories();
+
+    //display total calories
+    UICtrl.displayTotalCalories(totalCalories);
+
+    //reset state
+    UICtrl.clearEditState();
+
+
+    e.preventDefault();
+  }
+
+  const clearAllItemsClick = function(e){
+    //delete all items from data
+    ItemCtrl.clearAllItems();
+
+    //Get total Calories
+    const totalCalories = ItemCtrl.getTotalCalories();
+
+    //display total calories
+    UICtrl.displayTotalCalories(totalCalories);
+
+    //delete all items from ui
+    UICtrl.removeItems();
+
+    //reset state
+    UICtrl.clearEditState();
+
+    //Hide the list
+    UICtrl.hideList();
 
     e.preventDefault();
   }
