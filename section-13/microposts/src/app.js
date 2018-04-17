@@ -1,2 +1,3 @@
-const greeting = 'Hello World';
-console.log(greeting);
+const person = require('./mymodule1');
+
+console.log(person.name);
