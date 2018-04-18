@@ -1,0 +1,17 @@
+#alerts {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+}
+
+#alerts .fade {
+  opacity: 0;
+  transition: 0.7s opacity;
+}
+
+.alert {
+  width: 350px;
+  margin-top: 15px;
+  opacity: 1;
+  transition: 0.7s opacity;
+}
