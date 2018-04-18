@@ -1,34 +1,14 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "Post One",
-      "body": "This is post one"
+      "title": "JavaScript is Cool",
+      "body": "I really like this training course.",
+      "id": 1
     },
     {
-      "id": 2,
-      "title": "Post Two",
-      "body": "This is post twe"
-    },
-    {
-      "id": 3,
-      "title": "Post Three",
-      "body": "This is post three"
-    },
-    {
-      "title": "Post Four",
-      "body": "This is post 4",
-      "id": 4
-    },
-    {
-      "title": "Post 5",
-      "body": "This is post 5",
-      "id": 5
-    },
-    {
-      "title": "Post 6",
-      "body": "This is post six",
-      "id": 6
+      "title": "Another Post",
+      "body": "Lorem ipsum fringilla suscipit sociosqu id et fermentum porttitor taciti nisi commodo scelerisque conubia vestibulum. Etiam orci cras nostra laoreet nunc aptent luctus erat arcu leo sagittis eget ullamcorper pulvinar, ex consectetur taciti. Dui tristique mauris urna purus tempus sagittis tortor dignissim iaculis at tristique adipiscing efficitur. Malesuada ad vulputate nec condimentum dictum augue fringilla viverra lorem dapibus lectus mi cras, arcu leo scelerisque imperdiet dictum. Laoreet ultrices lacinia cras elit, velit viverra ullamcorper vulputate ante dolor lacinia gravida cras etiam cursus tellus non sagittis condimentum nec nec.",
+      "id": 2
     }
   ]
 }
